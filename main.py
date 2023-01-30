@@ -6,7 +6,6 @@ from qt_material import apply_stylesheet
 from random import choice
 
 
-
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
