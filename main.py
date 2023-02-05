@@ -49,6 +49,11 @@ class MainWindow(QMainWindow):
                     self.nova_senha = self.nova_senha + choice(alfa_maiuscula)
                 else:
                     self.nova_senha = self.nova_senha + choice(alfa_minuscula)
+            self.nova_senha = list(self.nova_senha)
+            for i in range (0,10):
+                shuffle(self.nova_senha)
+
+            self.nova_senha = ''.join(self.nova_senha)
 
             self.ui.lbl_senha.setText(self.nova_senha)
             self.ui.lbl_site.setText(self.ui.txt_site.text())
