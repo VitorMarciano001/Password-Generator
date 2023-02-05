@@ -5,11 +5,7 @@ class UI_MainWindow(object):
     def setup_ui(self, parent):
         if not parent.objectName():
             parent.setObjectName("MainWindow")
-            senhas = []
-            with open("arquivos-leitura/senhas.csv") as arquivo:
-                    leitura = csv.reader(arquivo)
-                    for iterador in leitura:
-                        senhas.append(iterador)
+            self.senhas = []
 
             
 
@@ -136,19 +132,19 @@ class UI_MainWindow(object):
 
             #--------------------------------------
             self.table_widget = QTableWidget()
-            if (senhas != ''):
+            if (self.senhas != ''):
                 with open("arquivos-leitura/senhas.csv") as arquivo:
                     leitura = csv.reader(arquivo)
                     for iterador in leitura:
-                        senhas.append(iterador)
-                    for row, text in enumerate(senhas):
+                        self.senhas.append(iterador)
+                    for row, text in enumerate(self.senhas):
                         for colum, data in enumerate(text):
                             self.table_widget.setHorizontalHeaderLabels(["Site/app","Usuario","Senha"])
                             self.table_widget.setColumnWidth(0,130)
                             self.table_widget.setColumnWidth(1,130)
                             self.table_widget.setColumnWidth(2,168)
-                            self.table_widget.setRowCount(len(senhas))
-                            self.table_widget.setColumnCount(len(senhas[0]))
+                            self.table_widget.setRowCount(len(self.senhas))
+                            self.table_widget.setColumnCount(len(self.senhas[0]))
                             self.table_widget.setItem(row, colum, QTableWidgetItem(str(data)))
             #--------------------------------------
 

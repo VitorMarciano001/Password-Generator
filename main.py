@@ -60,7 +60,6 @@ class MainWindow(QMainWindow):
             self.message_box.show()
     
     def update_status(self):
-        print(self.nova_senha)
         #---------------------------------------------------------
         # Inicio de variaveis
         self.lista_senhas = []
@@ -84,7 +83,7 @@ class MainWindow(QMainWindow):
                 self.ui.table_widget.setHorizontalHeaderLabels(["Site/app","Usuario","Senha"])
                 self.ui.table_widget.setColumnWidth(0,130)
                 self.ui.table_widget.setColumnWidth(1,130)
-                self.ui.table_widget.setColumnWidth(2,140)
+                self.ui.table_widget.setColumnWidth(2,168)
                 self.ui.table_widget.setRowCount(len(self.lista_senhas))
                 self.ui.table_widget.setColumnCount(len(self.lista_senhas[0]))
                 self.ui.table_widget.setItem(row, colum, QTableWidgetItem(str(data)))
@@ -108,7 +107,7 @@ class MainWindow(QMainWindow):
 
 if (__name__ == "__main__"):
     app = QApplication(sys.argv)
-    apply_stylesheet(app, theme='dark_blue.xml')
+    apply_stylesheet(app, theme='dark_amber.xml')
     window = MainWindow()
     window.show()
     app.exec()
